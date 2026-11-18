@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-<title>Struikelstenen — Stolpersteine of Ghent</title>
-<meta name="description" content="A living memorial map of the Stolpersteine (struikelstenen) of Ghent, Belgium — resistance fighters and victims of National Socialism. Tap a stone to read their story." />
+<title>Struikelstenen van Gent — Stolpersteine</title>
+<meta name="description" content="Een levende herinneringskaart van de Struikelstenen (Stolpersteine) van Gent, België — verzetsstrijders en slachtoffers van het nationaalsocialisme. Klik op een steen om hun verhaal te lezen." />
 <link rel="preconnect" href="https://unpkg.com" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -174,26 +174,26 @@ html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);
 
 <div id="topbar">
   <div class="plate">
-    <p class="kicker">Ghent · 1940 – 1945 · Lest we forget</p>
+    <p class="kicker">Gent · 1940 – 1945 · Opdat wij niet vergeten</p>
     <h1>Struikelstenen <b>van Gent</b></h1>
-    <p class="sub">The Stolpersteine of Ghent — a stone for every stolen life</p>
+    <p class="sub">De Stolpersteine van Gent — een steen voor elk geroofd leven</p>
     <div class="rule"></div>
   </div>
 </div>
 
-<div id="count">Memorial stones mapped: <b id="countN">—</b></div>
-<div id="aboutBtn">About</div>
+<div id="count">Herinneringsstenen in kaart: <b id="countN">—</b></div>
+<div id="aboutBtn">Over</div>
 
 <aside id="panel" aria-live="polite">
   <button class="close" aria-label="Close">×</button>
   <div class="scroll">
     <div class="ph" id="ph"></div>
     <div class="body">
-      <span class="tag" id="tag">Stolperstein</span>
+      <span class="tag" id="tag">Struikelsteen</span>
       <div class="addr" id="addr"></div>
       <p class="story" id="story"></p>
       <div class="inscr">
-        <h4>Inscription on the stone</h4>
+        <h4>Inscriptie op de steen</h4>
         <div class="plaque" id="plaque"></div>
       </div>
     </div>
@@ -204,11 +204,11 @@ html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);
   <div class="card">
     <div class="mark">◆ Hier woonde ◆</div>
     <h2>Struikelstenen <b>van Gent</b></h2>
-    <p class="lead">“A person is only forgotten when their name is forgotten.”</p>
-    <p>Scattered across the pavements of Ghent are small brass cobblestones — <b>Stolpersteine</b>, or <i>struikelstenen</i>. Each is set into the ground in front of the last freely chosen home of a person persecuted by the Nazi regime: resistance fighters, political prisoners, and Jewish neighbours who were deported and murdered.</p>
-    <p>You stumble not with your feet, but with your heart. Tap any stone on the map to read who lived there, and what became of them.</p>
-    <button class="enter" id="enterBtn">Walk the city</button>
-    <div class="foot">Data: Wikipedia &amp; Wikimedia Commons · OpenStreetMap</div>
+    <p class="lead">“Een mens is pas vergeten wanneer zijn naam vergeten is.”</p>
+    <p>Verspreid over de Gentse stoepen liggen kleine messing kasseien — <b>Stolpersteine</b>, of <i>struikelstenen</i>. Elke steen ligt voor de laatste vrij gekozen woonplaats van iemand die vervolgd werd door het naziregime: verzetsstrijders, politieke gevangenen en Joodse buren die gedeporteerd en vermoord werden.</p>
+    <p>Je struikelt niet met je voeten, maar met je hart. Klik op een steen op de kaart om te lezen wie er woonde, en wat hen overkwam.</p>
+    <button class="enter" id="enterBtn">Wandel door de stad</button>
+    <div class="foot">Gegevens: Wikipedia &amp; Wikimedia Commons · OpenStreetMap</div>
   </div>
 </div>
 
@@ -222,15 +222,15 @@ map.zoomControl.setPosition('bottomright');
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
   maxZoom:19,
   crossOrigin:true,
-  attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors · Memorial data: Wikipedia'
+  attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>-bijdragers · Herinneringsgegevens: Wikipedia'
 }).addTo(map);
 
 const panel=document.getElementById('panel');
 const intro=document.getElementById('intro');
 function openPanel(d){
   document.getElementById('ph').innerHTML = d.image
-    ? `<img src="${d.image}" alt="Stolperstein for ${d.name}" loading="lazy"/><div class="fade"></div><div class="name">${d.name}</div>`
-    : `<div class="noimg">No photograph available</div><div class="fade"></div><div class="name" style="position:static;padding:0 20px 14px">${d.name}</div>`;
+    ? `<img src="${d.image}" alt="Struikelsteen voor ${d.name}" loading="lazy"/><div class="fade"></div><div class="name">${d.name}</div>`
+    : `<div class="noimg">Geen foto beschikbaar</div><div class="fade"></div><div class="name" style="position:static;padding:0 20px 14px">${d.name}</div>`;
   document.getElementById('addr').innerHTML =
     `<svg width="12" height="12" viewBox="0 0 24 24" fill="#c69a3f"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>${d.address||''}`;
   document.getElementById('story').textContent = d.story||'';
