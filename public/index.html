@@ -29,7 +29,7 @@ html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);
 
 /* ---- Vintage, noir-resistance tint on the map tiles ---- */
 .leaflet-tile-pane{
-  filter:grayscale(.65) sepia(.55) contrast(1.05) brightness(.72) saturate(.85) hue-rotate(-8deg);
+  filter:grayscale(.8) sepia(.6) contrast(.95) brightness(.6) saturate(.7) hue-rotate(-6deg);
 }
 .leaflet-container{background:#0c0b0a;font-family:'Oswald',sans-serif;}
 .leaflet-bar a{background:var(--paper2);color:var(--ink);border-color:var(--rule)!important;}
@@ -219,9 +219,10 @@ const map = L.map('map',{zoomControl:true,attributionControl:true})
 L.control.zoom({position:'bottomright'}); // default already added; keep
 map.zoomControl.setPosition('bottomright');
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
   maxZoom:19,
-  attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> · &copy; <a href="https://carto.com/attributions">CARTO</a> · Memorial data: Wikipedia'
+  crossOrigin:true,
+  attribution:'&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors · Memorial data: Wikipedia'
 }).addTo(map);
 
 const panel=document.getElementById('panel');
